@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML</title>
+</head>
+<body>
+<h1>PALAWEB BANCO DE DADOS</h1>
+<h3>TABELA ALUNO</h3>
+<div id="conteudo"></div>
+<h3>TABELA DISCIPLINA</h3>
+<br>
+<div id="conteudo2"></div>
+<h3>TABELA MATERIA</h3>
+<br>
+<div id="conteudo3"></div>
+<h3>TABELA CERTIFICADOS</h3>
+<br>
+<div id="conteudo4"></div>
+<script>
+    function load() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                lerXML(this);
+            }
+        };
+        xhttp.open("GET", "PALEWEB XML.xml", true);
+        xhttp.send();
+    }
+    function lerXML(xml)
+    {
+        var i;
+        var xmlDoc = xml.responseXML;
+        var table="<table border=''><tr><th>Nome</th><th>CPF</th><th>Data de Nascimento</th><th>Sexo</th><th>ID Aluno</th><th>Login</th><th>Senha</th></tr>" ;
+        var table2="<table border=''><tr><th>NomeDisciplina</th><th>ID_Disciplina</th></tr>" ;
+        var table3="<table border=''><tr><th>ID_Materia</th><th>ID_Disciplina</th><th>Materia</th><th>Numero Certificado</th><th>Link</th><th>Descrição</th></tr>" ;
+        var table4="<table border=''><tr><th>Numero do Certificado</th><th>Nome do Certificado</th><th>ID_Materia</th><th>Quantidade de Horas</th></tr>" ;
+        var x = xmlDoc.getElementsByTagName("PALEWEB");
+
+        for (i = 0; i < x.length; i++) {
+            alunos = x[i].getElementsByTagName('Alunos')[0];
+            disciplinas = x[i].getElementsByTagName('Disciplinas')[0];
+            materias = x[i].getElementsByTagName('Materias')[0];
+            certificados = x[i].getElementsByTagName('Certificados')[0];
+
+            for (i = 0; i < 10; i++) {
+                var str = "<tr>";
+                aluno = alunos.getElementsByTagName('Aluno')[i];
+                nome = aluno.getElementsByTagName('Nome')[0].innerHTML;
+                cpf = aluno.getElementsByTagName('CPFaluno')[0].innerHTML;
+                dtnasc = aluno.getElementsByTagName('Data_Nasc')[0].innerHTML;
+                sexo = aluno.getElementsByTagName('Sexo')[0].innerHTML;
+                id = aluno.getElementsByTagName('ID_Aluno')[0].innerHTML;
+                login = aluno.getElementsByTagName('Login')[0].innerHTML;
+                senha = aluno.getElementsByTagName('Senha')[0].innerHTML;
+
+                str += "<td>" + nome + "</td><td>" + cpf + "</td><td>" + dtnasc + "</td><td>" + sexo + "</td><td>" + id + "</td><td>" + login + "</td><td>" + senha + "</td>";
+                str += "</tr>";
+                table += str;
+            }
+
+
+
+            for(i=0; i<10; i++){
+                var str2 = "<tr>";
+                disciplina = disciplinas.getElementsByTagName('Disciplina')[i];
+                nomedisciplina = disciplina.getElementsByTagName('Nome_disciplina')[0].innerHTML;
+                iddis = disciplina.getElementsByTagName('ID_Disciplina')[0].innerHTML;
+                str2 += "<td>"+nomedisciplina+"</td><td>"+iddis+"</td>";
+                str2 += "</tr>";
+                table2 += str2;
+            }
+            document.getElementById("conteudo2").innerHTML = table2;
+
+            for(i=0; i<10; i++){
+                var str3 = "<tr>";
+                materia = materias.getElementsByTagName('Materia')[i];
+                idmateria = materia.getElementsByTagName('ID_Materia')[0].innerHTML;
+                iddisciplina = materia.getElementsByTagName('ID_Disciplina')[0].innerHTML;
+                nomemateria = materia.getElementsByTagName('Nome_materia')[0].innerHTML;
+                ncert = materia.getElementsByTagName('Numero_Certificado')[0].innerHTML;
+                link = materia.getElementsByTagName('Link')[0].innerHTML;
+                descricao = materia.getElementsByTagName('Descrição')[0].innerHTML;
+                str3 +="<td>" + idmateria + "</td><td>" + iddisciplina + "</td><td>" + nomemateria + "</td><td>" + ncert + "</td><td>" + link + "</td><td>" + descricao + "</td>";
+                str3 += "</tr>";
+                table3 += str3;
+            }
+            document.getElementById("conteudo3").innerHTML = table3;
+
+            for(i=0; i<10; i++){
+                var str4 = "<tr>";
+                certificado = certificados.getElementsByTagName('Certificado')[i];
+                numerocert = certificado.getElementsByTagName('Numero_Certificado')[0].innerHTML;
+                nomecert = certificado.getElementsByTagName('Nome_certificado')[0].innerHTML;
+                idmateria = certificado.getElementsByTagName('ID_Materia')[0].innerHTML;
+                horas = certificado.getElementsByTagName('QTD_Horas')[0].innerHTML;
+
+                str4 +="<td>" + numerocert + "</td><td>" + nomecert + "</td><td>" + idmateria + "</td><td>" + horas + "</td>";
+                str4 += "</tr>";
+                table4 += str4;
+            }
+            document.getElementById("conteudo4").innerHTML = table4;
+        }
+    }
+    document.addEventListener("DOMContentLoaded", load, false);
+</script>
+</body>
+</html>

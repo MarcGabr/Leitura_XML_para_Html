@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="conteudo"></div>
+    <br>
+    <div id="conteudo2"></div>
+    <br>
+    <div id="conteudo3"></div>
+    <br>
+    <div id="conteudo4"></div>
+
+    <script>
+    var table="<table>  <tr><th>FUNCIONARIOS </th></tr><tr><th>NOME</th><th>SOBRENOME</th><th>CPF</th><th>EMAIL</th><th>TELEFONE</th><th>ID CARGO</th><th>SENHA</th></tr>";
+    $(function() {
+
+        $.get("gerenciador.json", {  },
+            function(data){
+            for(i=0;i<data.gerenciador.funcionarios.funcionario.length;i++){
+                var str = "<tr>";
+                nome = data.gerenciador.funcionarios.funcionario[i].nome;
+
+                sobrenome = data.gerenciador.funcionarios.funcionario[i].sobrenome;
+                cpf = data.gerenciador.funcionarios.funcionario[i].cpf;
+                email="<table>";
+                for (j = 0; j < data.gerenciador.funcionarios.funcionario[i].email.length;j++){
+                    email += "<tr><td>" + gerenciador.gerenciador.funcionarios.funcionario[i].email[j].email+"</td></tr>";
+                }
+                email+="</table>";
+
+                telefone = "<table>";
+                for (var j = 0; j < data.gerenciador.funcionarios.funcionario[i].telefone.length; j++){
+                    email += "<tr><td>" + data.gerenciador.funcionarios.funcionario[i].telefone[j].telefone+"</td></tr>";
+                }
+                telefone+="</table>"
+                idcargo = data.gerenciador.funcionarios.funcionario[i].id_cargo;
+                senha = data.gerenciador.funcionarios.funcionario[i].senha;
+                str += "<td>" + nome + "</td><td>" + sobrenome + "</td><td>" + cpf + "</td><td>" + email + "</td><td>" +telefone + "</td><td>" + idcargo + "</td><td>" + senha + "</td>";
+                str += "</tr>";
+                table += str;
+
+            }
+                document.getElementById("conteudo").innerHTML = table+"</table>"
+            }, "json");
+
+    });
+    </script>
+</body>
+</html>

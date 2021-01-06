@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct f_arvoreB arvoreB;
+typedef struct f_arvoreB {
+    int num_chaves;
+    int chaves[4];
+    struct f_arvoreB *filhos[5];
+};
+
+int pesquisa(int chave2, int *vetorchave, int n){
+    int pos=0;
+    while (pos < n && chave2 > vetorchave[pos]) pos++;
+    return pos;
+}
+int dividido(arvoreB **b, int posicao, int *subida, arvoreB **No){
+    arvoreB *ultimopont;
+    int ultima;
+    if (posicao == 4){
+        ultima = (*subida);
+        ultimopont = *No;
+    }else{
+        ultima = (*b)->chaves[3];
+        ultimopont = (*b)->filhos[4];
+        for (int i=3; i>posicao; i--){
+            (*b)->chaves[i] = (*b)->chaves[i-1];
+            (*b)->filhos[i+1] = (*b)->filhos[i];
+        }
+        (*b)->chaves[posicao] = (*subida);
+        (*b)->filhos[posicao+1] = (*No);
+    }
+    (*subida) = (*b)->chaves[2];
+    (*No)=(arvoreB*)malloc(sizeof(struct f_arvoreB));
+    (*No)->num_chaves = 4-2;
+    int i=0;
+    for (i=0; i < (*No)->num_chaves-1; i++){
+        (*No)->filhos[i] = (*b)->filhos[i + 2 + 1];
+        (*No)->chaves[i] = (*b)->chaves[i + 2 + 1];
+    }
+    (*No)->filhos[i] = (*b)->filhos[i + 2 + 1];
+    (*No)->chaves[i] = ultima;
+    (*No)->filhos[(*No)->num_chaves] = ultimopont;
+    (*b)->num_chaves = 2;
+    return 3;
+}
+
+int insirasemsubir(arvoreB **b, int *subir, arvoreB **No){
+        int posicao = pesquisa(*subir, (*b)->chaves, (*b)->num_chaves);
+        for (int i=(*b)->num_chaves; i>posicao; i--){
+            (*b)->chaves[i] = (*b)->chaves[i-1];
+            (*b)->filhos[i+1] = (*b)->filhos[i];
+        }
+        (*b)->num_chaves++;
+        (*b)->chaves[posicao] = (*subir);
+        (*b)->filhos[posicao+1] = (*No);
+        return 2;
+}
+
+int Insere(arvoreB **b, int chave, int *subir, arvoreB **No){
+    if ((*b) == NULL){(*subir) = chave;return 3;}
+
+    int posicao = pesquisa(chave, (*b)->chaves, (*b)->num_chaves);
+
+    if (posicao < (*b)->num_chaves && chave == (*b)->chaves[posicao]){
+              printf("Ja existe essa chave\n");
+              return 1;
+    }
+    int status;
+    if ((status=Insere(&(*b)->filhos[posicao], chave, subir, No)) != 3)
+        return status;
+    if ((*b)->num_chaves < 4)
+        return insirasemsubir(b, subir, No);
+    return dividido(b,posicao,subir,No);
+}
+void Inserir(arvoreB **b,int chave){
+    arvoreB *novo=NULL;
+    int subir;
+    if ( Insere(b, chave, &subir, &novo) == 3){
+        arvoreB *aux = (*b);
+        (*b)=(arvoreB*)malloc(sizeof(struct f_arvoreB));
+        (*b)->num_chaves = 1;
+        (*b)->chaves[0] = subir;
+        (*b)->filhos[0] = aux;
+        (*b)->filhos[1] = novo;
+    }
+}
+void imprimir(arvoreB *b, int nivel){
+    if (b!=NULL){
+        for (int i=0; i < b->num_chaves; i++)printf("CHAVE = %d ",b->chaves[i]);printf(" LOCALIZADA %d\n", nivel +1);
+        for (int i=0; i <= b->num_chaves; i++)imprimir(b->filhos[i], nivel+1);
+    }
+}
+
+int main(){
+    arvoreB *arvore=NULL;
+    Inserir(&arvore, 3);
+    Inserir(&arvore, 14);
+    Inserir(&arvore, 7);
+    Inserir(&arvore, 1);
+    Inserir(&arvore, 8);
+    Inserir(&arvore, 5);
+    Inserir(&arvore, 11);
+    Inserir(&arvore, 17);
+    Inserir(&arvore, 13);
+    Inserir(&arvore, 6);
+    Inserir(&arvore, 23);
+    Inserir(&arvore, 12);
+    Inserir(&arvore, 20);
+    Inserir(&arvore, 26);
+    Inserir(&arvore, 4);
+    Inserir(&arvore, 16);
+    Inserir(&arvore, 18);
+    Inserir(&arvore, 24);
+    Inserir(&arvore, 25);
+    Inserir(&arvore, 19);
+    imprimir(arvore,0);
+    return 0;
+}

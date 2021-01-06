@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+<html> 
+<body>
+  <h2>PALAWEB</h2>
+  <table border="1">
+    <tr bgcolor="#9acd32">
+      <th style="text-align:left">Aluno</th>
+      <th style="text-align:left">Disciplina</th>
+<th style="text-align:left">Materia</th>
+      <th style="text-align:left">Certificado</th>
+    </tr>
+    <xsl:for-each select="PALAWEB">
+    <tr>
+         <td><xsl:value-of select="Aluno"/></td>
+         <td><xsl:value-of select="Disciplina"/></td>
+        <td><xsl:value-of select="Materia"/></td>
+        <td><xsl:value-of select="Certificado"/></td>
+    </tr>
+    </xsl:for-each>
+  </table>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+

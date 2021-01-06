@@ -1,0 +1,322 @@
+{  "gerenciador": {
+    "funcionarios": {
+      "funcionario": [
+        {
+          "nome": "Funcionario 1",
+          "sobrenome": "A1",
+          "cpf": "00000000001",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "010",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 2",
+          "sobrenome": "A2",
+          "cpf": "00000000002",
+          "telefone": "999999999",
+          "email": [
+            "xxxx@gmail.com",
+            "xxxx@gmail.com"
+          ],
+          "id_cargo": "010",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 3",
+          "sobrenome": "A3",
+          "cpf": "00000000003",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "004",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 4",
+          "sobrenome": "A4",
+          "cpf": "00000000004",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "007",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 5",
+          "sobrenome": "A5",
+          "cpf": "00000000005",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "003",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 6",
+          "sobrenome": "A6",
+          "cpf": "00000000006",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "005",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 7",
+          "sobrenome": "A7",
+          "cpf": "00000000007",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "001",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 8",
+          "sobrenome": "A8",
+          "cpf": "00000000008",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "001",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 9",
+          "sobrenome": "A9",
+          "cpf": "00000000009",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "008",
+          "senha": "123456789"
+        },
+        {
+          "nome": "Funcionario 10",
+          "sobrenome": "B1",
+          "cpf": "00000000010",
+          "telefone": "999999999",
+          "email": "xxxx@gmail.com",
+          "id_cargo": "002",
+          "senha": "123456789"
+        }
+      ]
+    },
+    "cargos": {
+      "cargo": [
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo1",
+          "id_cargo": "001"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo2",
+          "id_cargo": "002"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo3",
+          "id_cargo": "003"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo4",
+          "id_cargo": "004"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo5",
+          "id_cargo": "005"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo6",
+          "id_cargo": "006"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo7",
+          "id_cargo": "007"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo8",
+          "id_cargo": "008"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo9",
+          "id_cargo": "009"
+        },
+        {
+          "posicao_social": "xxxxx",
+          "nome_cargo": "cargo10",
+          "id_cargo": "010"
+        }
+      ]
+    },
+    "tipostarefas": {
+      "tipotarefa": [
+        {
+          "tipo": "Tipo01",
+          "id_cargo": "009",
+          "id_tipo_tarefa": "001"
+        },
+        {
+          "tipo": "Tipo02",
+          "id_cargo": "004",
+          "id_tipo_tarefa": "002"
+        },
+        {
+          "tipo": "Tipo03",
+          "id_cargo": "007",
+          "id_tipo_tarefa": "003"
+        },
+        {
+          "tipo": "Tipo04",
+          "id_cargo": "005",
+          "id_tipo_tarefa": "004"
+        },
+        {
+          "tipo": "Tipo05",
+          "id_cargo": "010",
+          "id_tipo_tarefa": "005"
+        },
+        {
+          "tipo": "Tipo06",
+          "id_cargo": "004",
+          "id_tipo_tarefa": "006"
+        },
+        {
+          "tipo": "Tipo07",
+          "id_cargo": "008",
+          "id_tipo_tarefa": "007"
+        },
+        {
+          "tipo": "Tipo08",
+          "id_cargo": "002",
+          "id_tipo_tarefa": "008"
+        },
+        {
+          "tipo": "Tipo09",
+          "id_cargo": "003",
+          "id_tipo_tarefa": "009"
+        },
+        {
+          "tipo": "Tipo010",
+          "id_cargo": "001",
+          "id_tipo_tarefa": "010"
+        }
+      ]
+    },
+    "tarefas": {
+      "tarefa": [
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000001",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "001",
+          "id_tipo_tarefa": "005",
+          "cpf_criador": "00000000010",
+          "anexos": {
+            "nome_pdf": "descriao.pdf",
+            "documento": "descriao.pdf"
+          }
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000008",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "002",
+          "id_tipo_tarefa": "010",
+          "cpf_criador": "00000000002",
+          "anexos": {
+            "nome_pdf": "descriao.pdf",
+            "documento": "descriao.pdf"
+          }
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000007",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "003",
+          "id_tipo_tarefa": "010",
+          "cpf_criador": "00000000003"
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000006",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "004",
+          "id_tipo_tarefa": "004",
+          "cpf_criador": "00000000004"
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000005",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "005",
+          "id_tipo_tarefa": "009",
+          "cpf_criador": "00000000005",
+          "anexos": {
+            "nome_pdf": "descriao.pdf",
+            "documento": "descriao.pdf"
+          }
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000004",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "006",
+          "id_tipo_tarefa": "003",
+          "cpf_criador": "00000000006",
+          "anexos": {
+            "nome_pdf": "descriao.pdf",
+            "documento": "descriao.pdf"
+          }
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000003",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "007",
+          "id_tipo_tarefa": "002",
+          "cpf_criador": "00000000007"
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000002",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "008",
+          "id_tipo_tarefa": "005",
+          "cpf_criador": "00000000008"
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000001",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "009",
+          "id_tipo_tarefa": "005",
+          "cpf_criador": "00000000009"
+        },
+        {
+          "tempo_limite": "xxxx",
+          "data_realizacao": "xx/xx/xx",
+          "cpf_responsavel": "00000000010",
+          "data_inicio": "yy/yy/yy",
+          "id_tarefa": "010",
+          "id_tipo_tarefa": "008",
+          "cpf_criador": "00000000008",
+          "anexos": {
+            "nome_pdf": "descriao.pdf",
+            "documento": "descriao.pdf"
+          }
+        }
+      ]
+    }
+  }
+}
